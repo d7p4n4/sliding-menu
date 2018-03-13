@@ -1,0 +1,547 @@
+<!doctype html> 
+<html lang="en">
+  <head>
+    <!-- Required meta tags --> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    <!-- Bootstrap CSS --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    <!-- font fam -->
+    <link href="https://fonts.googleapis.com/css?family=Gudea|Karma|Roboto" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>    
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <title>Practice page</title> 
+    
+    <link href="reset.css" type="text/css" rel="stylesheet">
+        
+    <!-- main styles -->
+
+    <style>
+      
+      html {
+        font-size: 13px;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      
+      @media (min-width: 576px) {
+        html {
+          font-size: 15px;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        html {
+          font-size: 17px;
+        }
+      }
+      
+      @media (min-width: 992px) {
+        html {
+          font-size: 19.5px;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        html {
+          font-size: 22px;
+        }
+      }
+      
+      @media (min-width: 1440px) {
+        html {
+          font-size: 25px;
+        }
+      }
+    
+     a {
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      a:hover {
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      .cbp-spmenu {
+        position: fixed;
+        background-color: #47a3da;
+      }
+      
+      .cbp-spmenu h3 {
+        color: #afdefa;
+        font-size: 1.9rem;
+        padding: 1rem;
+        margin: 0;
+        font-weight: 300;
+        background-color: #0d77b6;
+      }
+      
+      .cbp-spmenu a {
+        display: block;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 300;
+      }
+      
+      .cbp-spmenu a:hover {
+        background-color: #258ecd;
+      }
+      
+      .cbp-spmenu a:active {
+        background-color: #afdefa;
+        color: #47a3da;
+      }
+      
+      .cbp-spmenu-vertical {
+        width: 12rem;
+        height: 100%;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .cbp-spmenu-vertical a {
+        border-bottom: .05rem solid #258ecd;
+        padding: 1rem;
+      }
+      
+      .cbp-left {
+        left: -12rem;
+      }
+      
+      .cbp-spmenu-open.cbp-left {
+        left: 0;
+      }
+      
+      .cbp-spmenu-push {
+        overflow-x: hidden;
+        position: relative;
+        left: 0;
+      }
+      
+      .cbp-push-toright {
+        left: 12rem;
+      }
+      
+      .cbp-spmenu,
+      .cbp-spmenu-push {
+        transition: all .3s ease;
+      }
+      
+      /* cube button */
+      
+      .sene {
+        widows: 15rem;
+        height: 5rem;
+        perspective: 40rem;
+      }
+      
+      .cube {
+        position: relative;
+        widows: 15rem;
+        height: 5rem;
+        margin: 1.5rem;
+        transform-origin: center center;
+        transform-style: preserve-3d;
+        transition: .25s all;
+      }
+      
+      .front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #f55639;
+        transform: rotateX(0deg) translate3d(0,0,2.5rem);
+      }
+      
+      .bottom {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #d629d5;
+        transform: rotateX(-90deg) translate3d(0,0,2.5rem);
+      }
+      
+      .scene:hover .cube {
+        transform: rotateX(90deg);
+      }
+      
+      /* search-field */
+      
+      .wrapper-1 {
+        width: 100%;
+        padding: 5rem;
+        background: #E62878;
+        font-family: Tahoma, sans-serif;
+      }
+      
+      p {
+        text-align: center;
+        color: #fff;
+        font-size: .7rem;
+      }
+      
+      h4 {
+        color: #fff;
+        text-align: center;
+        letter-spacing: .025rem;
+        transform: scale(0);
+        transition: all .3s;
+        position: relative;
+        top: -1.25rem;
+        margin: 0;
+        font-weight: normal;
+      }
+      
+      h4.show {
+        animation: alert .18s ease-in-out;
+        animation-fill-mode: forwards;
+      }
+      
+      @keyframes alert {
+        0% {
+          transform: scale(0);
+        }
+        
+        80% {
+          transform: scale(1.2);
+        }
+        
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      form {
+        width: 1.8rem;
+        height: 1.8rem;
+        margin: 0 auto;
+        display: block;
+        box-sizing: border-box;
+        position: relative;
+        transition: all .15s;
+      }
+      
+      input[type="submit"] {
+        display: none !important;
+      }
+      
+      input {
+        width: 100%;
+      }
+      
+      input {
+        background: none;
+        border: .15rem solid #fff;
+        border-radius: 1.3rem;
+        box-sizing: border-box;
+        padding: .25rem .75rem .35rem;
+        font-size: .7rem;
+        color: #fff;
+        z-index: 2;
+        position: relative;
+      }
+      
+      form.explode {
+        transform: scale(1.4);
+        opacity: 0;
+      }
+      
+      input:focus {
+        outline: none;
+      }
+      
+      .after {
+        width: 1.8rem;
+        height: 1.8rem;
+        position: absolute;
+        top: 1px;
+        right: 0;
+        z-index: 1;
+      }
+      
+      form.open .after {
+        cursor: pointer;
+      } 
+      
+      .after::before,
+      .after::after {
+        content: '';
+        width: .65rem;
+        height: .15rem;
+        background-color: #fff;
+        border-radius: .15rem;
+        position: absolute;
+        transform-origin: 100% 100%;
+      }
+      
+      .after::after {
+        bottom: -.15rem;
+        right: -.15rem;
+        transform: rotate(45deg);
+      }
+      
+      .after::before {
+        top: -.15rem;
+        right: -.15rem;
+        transform: rotate(-45deg);
+        opacity: 0;
+      }
+      
+      form,
+      form .after,
+      form .after::before,
+      form .after::after {
+        animation-duration: 1.1s;
+        animation-fill-mode: forwards;
+      }
+      
+      form.in {
+        animation-name: expand;
+      }
+      
+      form.in .after::before {
+        animation-name: beforemagic;
+      }
+      
+      form.in .after::after {
+        animation-name: aftermagic;
+      }
+      
+      form.close,
+      form.close .after,
+      form.close .after::before,
+      form.close .after::after {
+        animation-direction: reverse;
+      }
+      
+      form.close {
+        animation-name: expand;
+      }
+      
+      form.close .after::before {
+        animation-name: beforemagic;
+      }
+      
+      form.close .after::after {
+        animation-name: aftermagic;
+      }
+      
+      form.open {
+        width: 12.5rem;
+        color: #fff;
+      }
+      
+      form.open .after {
+        z-index: 3;
+      }
+      
+      form.open .after::before {
+        width: 1rem;
+        bottom: .5rem;
+        right: .65rem;
+        top: .45rem;
+        opacity: 1;
+      }
+      
+      form.open .after::after {
+        width: 1rem;
+        bottom: .5rem;
+        right: .75rem;
+      }
+      
+      @keyframes aftermagic {
+        0% {}
+        10% {
+          width: 1.2rem;
+          bottom: -.5rem;
+          right: -.5rem;
+        }
+        15% {
+          opacity: 1;
+        }
+        35% {
+          width: .65rem;
+          bottom: -.15rem;
+          right: -.15rem;
+          opacity: 0;
+        }
+        25% {
+          opacity: 0;
+        }
+        64% {
+          opacity: 0;
+        }
+        65% {
+          opacity: 1;
+          width: .65rem;
+          bottom: -.1rem;
+          right: -.15rem;
+        }
+        75% {
+          width: 1.5rem;
+          bottom: .2rem;
+          right: .5reem;
+        }
+        90% {
+          width: 1rem;
+          bottom: .5rem;
+          right: .75rem;
+        }
+        100% {
+          width: 1rem;
+          bottom: .5rem;
+          right: .75rem;
+        }
+      }
+      
+      @keyframes beforemagic {
+        0% {}
+        50% {
+          opacity: 0;
+        }
+        55% {
+          opacity: 1;
+          width: .65rem;
+          top: -.2rem;
+          right: -.15rem;
+        }
+        65% {
+          width: 1.5rem;
+          top: .3rem;
+          right: .5px;
+        }
+        80% {
+          width: 1rem;
+          top: .45rem;
+          right: .65rem;
+        }
+        100% {
+          width: 1rem;
+          top: .45rem;
+          right: .65rem;
+          opacity: 1;
+        }
+      }
+      
+      @keyframes expand {
+        0% {
+          color: transparent;
+        }
+        20% {
+          width: 1.8rem;
+        }
+        45% {
+          width: 12.5rem;
+        }
+        99% {
+          color: transparent
+        }
+        100% {
+          width: 12.5rem;
+          color: #fff;
+        }
+      }
+    </style>
+  </head>
+  <body class="cbp-spmenu-push">
+    
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-left" id="cbp-spmenu-1">
+      <h3>Menu</h3>
+      <a href="#">Celery seakale</a>
+      <a href="#">Dulse daikon</a>
+      <a href="#">Zucchini garlic</a>
+      <a href="#">Catsear azuki bean</a>
+      <a href="#">Dandelion bunya</a>
+      <a href="#">Rutabaga</a>
+    </nav>
+    
+    <div class="container">
+      <div class="main">
+        <section>
+          <h2>Slide Menu</h2>
+          <button id="showLeft">Show/Hide Left Slide Menu</button>
+        </section>
+      </div>
+      <div class="scene">
+        <div class="cube">
+          <div class="front"> CLICK ME! </div>
+          <div class="bottom"> FOR MORE INFO! </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="wrapper-1">
+      <form>
+        <input type="text" />
+        <div class="after"></div>
+        <input type="submit" />
+      </form>
+      <h4>&nbsp;</h4>
+      <p>Click search, Enter to submit</p>
+    </div>
+    
+    <script>
+      window.onload = function() {
+        
+        $('#showLeft').on('click', function() {
+          $('this').addClass('active');
+          $('#cbp-spmenu-1').addClass('cbp-spmenu-open');
+          $('body').addClass('cbp-push-toright');
+        })
+        
+        var input = $('input');
+        var form = $('form');
+        var after = $('.after');
+        var h4 = $('h4');
+        
+        input.focus(function() {
+          if(form.hasClass('open')) return;
+          form.addClass('in');
+          setTimeout(function(){
+            form.addClass('open');
+            form.removeClass('in');
+          }, 1300);
+        })
+        
+        after.on('click', function(e) {
+          e.preventDefault();
+          if(!form.hasClass('open')) return;
+          input.val('');
+          form.addClass('close');
+          form.removeClass('open');
+          setTimeout(function(){
+            form.removeClass('close');
+          }, 1300);
+        })
+        
+        form.submit(function(e) {
+          e.preventDefault();
+          h4.html('Searching!').addClass('show');
+          form.addClass('explode');
+          setTimeout(function(){
+            input.val('');
+            form.removeClass('explode');
+            h4.removeClass('show');
+          }, 3000);
+        })
+        
+      }
+    </script>
+    
+    
+    
+ <!-- Optional JavaScript --> 
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
+  </body> 
+</html>
+      
